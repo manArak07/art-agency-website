@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Layout from './pages/layout';
 
-function App() {
+function App({routes = []}) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        {routes.map(({path, Component, withLayout}) => (
+          <Route key={path} path={path} element={withLayout ? (
+            <Layout>
+               <Component />
+            </Layout>
+          ) : (
+            <Component />
+          )}>
+
+          </Route>
+        ))}
+      </Routes>
+
     </div>
   );
 }

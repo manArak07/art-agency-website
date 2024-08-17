@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Home from './pages/home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const routes = [
+  {path: "/", Component:Home, withLayout:true},
+]
 root.render(
   <React.StrictMode>
-    <App />
+    <App routes={routes}/>
   </React.StrictMode>
 );
 
