@@ -1,0 +1,1 @@
+const homeImages = ["/home-one.jpg", "/home-two.jpg"]
